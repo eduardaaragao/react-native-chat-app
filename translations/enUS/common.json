@@ -1,3 +1,14 @@
 {
-    "appName": "Chat App UI"
+    "appName": "Chat App UI",
+    "darkMode": "Dark Mode",
+    "lightMode": "Light Mode",
+    "welcomeMessage": "Welcome!",
+    "subheaderMessage": "Please, sign in to continue.",
+    "forgotPassword": "Forget Password?",
+    "signUp": "Sign Up",
+    "newUser": "I'm new",
+    "signIn":"Sign In",
+    "phoneNumber": "Your phone number",
+    "enterPhone": "Enter Phone Number",
+    "fourDigitMessage": "A 4 digit code will be sent via SMS to verify your mobile number."
 }
