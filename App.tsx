@@ -7,7 +7,6 @@ import {
   Switch,
   Text,
   useColorMode,
-  VStack,
 } from "native-base";
 import React from "react";
 import { useTranslation } from "react-i18next";
@@ -39,12 +38,9 @@ const App = () => {
         px={4}
         flex={1}
       >
-        <VStack space={5} alignItems="center">
-          <Heading size="lg">{t("appName")}</Heading>
-          <HStack space={2} alignItems="center"></HStack>
-          <LoginView />
-          <ToggleDarkMode />
-        </VStack>
+        <Heading size="lg">{t("appName")}</Heading>
+        <LoginView />
+        <ToggleDarkMode />
       </Center>
     </NativeBaseProvider>
   );
