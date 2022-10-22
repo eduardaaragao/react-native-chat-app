@@ -1,3 +1,13 @@
 {
-    "appName": "Chat App UI"
+    "appName": "Chat App UI",
+    "darkMode": "Dark Mode",
+    "lightMode": "Light Mode",
+    "welcomeMessage": "Bem vind@!",
+    "subheaderMessage": "Por favor, faça login para iniciar.",
+    "forgotPassword": "Esqueci a senha",
+    "signUp": "Inscrever-se",
+    "newUser": "I'm new",
+    "signIn": "Entrar",
+    "phoneNumber":"Seu número de telemóvel",
+    "enterPhone": "Digite seu número de telemóvel"
 }

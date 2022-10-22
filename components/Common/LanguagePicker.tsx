@@ -1,54 +1,43 @@
+import { Box, Center, CheckIcon, Select } from "native-base";
 import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
-import { Modal, View, Text, Pressable, StyleSheet } from "react-native";
 
 const LanguagePicker = () => {
   const [modalVisible, setModalVisible] = useState(false);
-  const { i18n } = useTranslation(); //i18n instance
+  const { i18n } = useTranslation();
+  const [language, setLanguage] = useState("");
 
-  //array with all supported languages
   const languages = [
-    { name: "de", label: "Deutsch" },
-    { name: "en", label: "English" },
-    { name: "fr", label: "Français" },
-    { name: "be", label: "Беларуская" },
-    { name: "es", label: "Español" },
+    { name: "en-US", label: "English" },
+    { name: "pt-PT", label: "Português" },
   ];
 
-  const LanguageItem = ({ name, label }: { name: string; label: string }) => (
-    <Pressable
-      onPress={() => {
-        i18n.changeLanguage(name);
-        setModalVisible(!modalVisible);
-      }}
-    >
-      <Text>{label}</Text>
-    </Pressable>
-  );
+  const handleChangeLanguage = (language: string) => {
+    setLanguage(language);
+    i18n.changeLanguage(language);
+  };
 
   return (
-    <View>
-      <Modal
-        animationType="slide"
-        transparent={true}
-        visible={modalVisible}
-        onRequestClose={() => {
-          setModalVisible(!modalVisible);
-        }}
-      >
-        <View>
-          <View>
-            {languages.map((lang) => (
-              <LanguageItem {...lang} key={lang.name} />
-            ))}
-          </View>
-        </View>
-      </Modal>
-      <Pressable onPress={() => setModalVisible(true)}>
-        //displays the current app language
-        <Text>{i18n.language}</Text>
-      </Pressable>
-    </View>
+    <Center>
+      <Box maxW="300">
+        <Select
+          selectedValue={language}
+          minWidth="200"
+          accessibilityLabel="Choose Language"
+          placeholder="Choose Language"
+          _selectedItem={{
+            bg: "teal.600",
+            endIcon: <CheckIcon size="5" />,
+          }}
+          mt={1}
+          onValueChange={(itemValue) => handleChangeLanguage(itemValue)}
+        >
+          {languages.map((language) => (
+            <Select.Item label={language.label} value={language.name} />
+          ))}
+        </Select>
+      </Box>
+    </Center>
   );
 };
 
